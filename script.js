@@ -31,7 +31,11 @@
     },
     { threshold: 0.12 }
   );
-  document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
+  document.documentElement.classList.add("js-reveal");
+  document.querySelectorAll(".reveal").forEach((el) => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible");
+    else revealer.observe(el);
+  });
 
   // Count-up stats
   const counter = new IntersectionObserver(

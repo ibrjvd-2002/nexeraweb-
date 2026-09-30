@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --bg: #070912;
   --bg-2: #0c1020;
   --surface: rgba(255, 255, 255, 0.04);
@@ -54,7 +55,7 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- Nav ---------- */
 .nav {
-  position: fixed; inset: 0 0 auto; z-index: 50;
+  position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px);
   transition: background .3s, border-color .3s;
   border-bottom: 1px solid transparent;
 }
@@ -384,8 +385,7 @@ legend { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 
 .footer__bottom { display: flex; justify-content: space-between; margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
 
 /* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal { transition: opacity .7s ease, transform .7s ease; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
